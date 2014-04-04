@@ -284,3 +284,14 @@ or another SS framework, but it wasn't meant for this -- ie.
 
 For those who care, this software is licensed under the MIT license.
 
+## HMVC in the wild
+
+HMVC has been succesfully adopted at FaceBook, Google, StackOverflow
+and The Red Cross.
+
+The lead developer of FaceBook's React.js has been caught on
+camera upon hearing about HMVC:
+
+![LOL](https://camo.githubusercontent.com/32287eb8c2831216708d6782a2588d46cbfd9287/687474703a2f2f692e696d6775722e636f6d2f4b693078332e676966)
+
+Jokes apart, I'd like to get your feedback!
