@@ -4,6 +4,13 @@ HMVC is a JavaScript library that lets you isolate and decouple
 your code, which took inspiration from the hierarchical MVC
 pattern and AngularJS directives.
 
+HMVC is mostly suitable for apps that need to modify parts of the
+DOM to generate user-specific content on the client-side, and will
+let them scale better: with HMVC, you can keep client-related
+informations on the client and customize views on the client, rather
+then the server, where you will be able to cache contents more
+aggressively and live a - definitely - happier life.
+
 ``` html
 <html>
     <body>
