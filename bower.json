@@ -1,0 +1,28 @@
+{
+  "name": "hmvc",
+  "main": "hmvc.js",
+  "version": "0.0.1",
+  "authors": [
+    "odino <alessandro.nadalin@gmail.com>"
+  ],
+  "description": "HMVC is a JavaScript library that lets you isolate and decouple your code, which took inspiration from the hierarchical MVC pattern and AngularJS directives.",
+  "keywords": [
+    "hmvc",
+    "angularjs",
+    "mvc",
+    "framework"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/odino/hmvc",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "*"
+  }
+}
