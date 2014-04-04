@@ -7,8 +7,8 @@ pattern and AngularJS directives.
 HMVC is mostly suitable for apps that need to modify parts of the
 DOM to generate user-specific content on the client-side, and will
 let them scale better: with HMVC, you can keep client-related
-informations on the client and customize views on the client, rather
-then the server, where you will be able to cache contents more
+informations on the client and customize views **there** rather
+then the server; on the latter you will be able to cache contents more
 aggressively and live a - definitely - happier life.
 
 ``` html
