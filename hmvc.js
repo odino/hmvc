@@ -97,7 +97,7 @@ hmvc = (function(){
         var viewData = result.run() || {};
 
         if (result.template && typeof result.template === 'string') {
-            element.innerHTML = templating.render(result.template, viewData);
+            element.outerHTML = templating.render(result.template, viewData);
         }
     }
 
