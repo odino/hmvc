@@ -1,0 +1,31 @@
+<html>
+<head>
+</head>
+<body>
+<greet>
+    Hello
+</greet>
+<script type="text/javascript" src="http://localhost:8945/bower_components/lodash/dist/lodash.js"></script>
+<script type="text/javascript" src="http://localhost:8945/hmvc.js"></script>
+<script>
+    hmvc.service('customService', {
+        test: function() {
+            return 'test-service';
+        }
+    });
+
+    hmvc.component('greet', function(element, customService){
+        return {
+            template: "<h1>{{ message }}</h1>",
+            run: function() {
+                return {
+                    message: customService.test()
+                }
+            }
+        };
+    }, ["customService"]);
+
+    hmvc.run();
+</script>
+</body>
+</html>
