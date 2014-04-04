@@ -221,6 +221,16 @@ on top of "its" elements, which are pretty self-explanatory:
 * `removeClass`
 * `parent`
 
+## Tests
+
+The test suite is written with CasperJS:
+
+```
+npm install -g casperjs
+
+casperjs test/hmvc.js
+```
+
 ## About the HMVC pattern
 
 HMVC is an [established pattern](http://en.wikipedia.org/wiki/Hierarchical_model%E2%80%93view%E2%80%93controller)
