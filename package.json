@@ -1,0 +1,22 @@
+{
+  "name": "hmvc",
+  "version": "0.0.0",
+  "description": "[![Build Status](https://travis-ci.org/odino/hmvc.svg?branch=travis-ci)](https://travis-ci.org/odino/hmvc)",
+  "main": "hmvc.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "casperjs test test/hmvc.js  --fail-fast"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/odino/hmvc.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/odino/hmvc/issues"
+  },
+  "homepage": "https://github.com/odino/hmvc"
+}
