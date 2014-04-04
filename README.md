@@ -286,7 +286,7 @@ For those who care, this software is licensed under the MIT license.
 
 ## HMVC in the wild
 
-HMVC has been succesfully adopted at FaceBook, Google, StackOverflow
+HMVC has been succesfully adopted by FaceBook, Google, StackOverflow
 and The Red Cross.
 
 The lead developer of FaceBook's React.js has been caught on
