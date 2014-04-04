@@ -231,6 +231,14 @@ npm install -g casperjs
 casperjs test/hmvc.js
 ```
 
+Automated tests are setup through travis-ci even though
+there seems to be an *obscure* problem with running the
+tests there (locally it's all good, on travis it seems
+there is some glitch with phantom `1.9.X`, as the JS
+doesnt seem to be executed by the headless browser).
+
+:*-( [![Build Status](https://travis-ci.org/odino/hmvc.svg?branch=travis-ci)](https://travis-ci.org/odino/hmvc)
+
 ## About the HMVC pattern
 
 HMVC is an [established pattern](http://en.wikipedia.org/wiki/Hierarchical_model%E2%80%93view%E2%80%93controller)
