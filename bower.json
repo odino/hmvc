@@ -1,7 +1,7 @@
 {
   "name": "hmvc",
   "main": "hmvc.js",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "authors": [
     "odino <alessandro.nadalin@gmail.com>"
   ],
@@ -14,7 +14,7 @@
   ],
   "license": "MIT",
   "homepage": "https://github.com/odino/hmvc",
-  "private": true,
+  "private": false,
   "ignore": [
     "**/.*",
     "node_modules",
