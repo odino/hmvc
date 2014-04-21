@@ -96,9 +96,11 @@ hmvc = (function(){
 
         var viewData = result.run() || {};
 
-        if (result.template && typeof result.template === 'string') {
-            element.outerHTML = templating.render(result.template, viewData);
-        }
+        Q.when(viewData).then(function(data) {
+            if (result.template && typeof result.template === 'string') {
+                element.outerHTML = templating.render(result.template, data);
+            }
+        });
     }
 
     /**

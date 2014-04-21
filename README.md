@@ -188,6 +188,28 @@ hmvc.component('greet', function(element){
 });
 ```
 
+## Promises
+
+HMVC also has the ability to render components that need to wait until
+a promise is resolved:
+
+```  javascript
+hmvc.component('fetch-remote-page', function(element){
+    return {
+        template: 'HTTP: {{ res.statusCode }}',
+        run: function() {
+            return http('https://example.org/hello').then(function(res){
+                return {
+                    res: res
+                };
+            })
+        }
+    };
+});
+```
+
+**Soooo** much fun!
+
 ## Say "NO" to jQuery!
 
 Upon creating HMVC, we tried to downsize it and avoid unnecessary

@@ -23,6 +23,7 @@
     "tests"
   ],
   "dependencies": {
-    "lodash": "*"
+    "lodash": "*",
+    "q": "~1"
   }
 }
