@@ -100,6 +100,8 @@ hmvc = (function(){
             if (result.template && typeof result.template === 'string') {
                 element.outerHTML = templating.render(result.template, data);
             }
+        }).then(function(){
+            result.terminate && result.terminate();
         });
     }
 

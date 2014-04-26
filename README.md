@@ -11,7 +11,7 @@ informations on the client and customize views **there** rather
 then the server; on the latter you will be able to cache contents more
 aggressively and live a - definitely - happier life.
 
-``` html
+``` markup
 <html>
     <body>
         <scream>

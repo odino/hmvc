@@ -20,6 +20,16 @@ casper.test.begin("Simple component", 2, function(test) {
     });
 });
 
+casper.test.begin("Simple component with termnate function", 1, function(test) {
+    casper.start('http://localhost:8945/test/pages/terminate.html', function() {
+        this.wait(200, function() {
+            console.log(this.getPageContent())
+            test.assertExists('greet-me.terminated', "The greet component has been terminated");
+            test.done();
+        });
+    });
+});
+
 casper.test.begin("Simple component  declared by attribute", 2, function(test) {
     casper.start('http://localhost:8945/test/pages/greet-attribute.html', function() {
         this.wait(200, function() {
