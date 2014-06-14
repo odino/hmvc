@@ -1,4 +1,8 @@
-hmvc = (function(){
+window.hmvc = (function(){
+    /*global _, $, console, Q */
+    /*jshint unused: false */
+    'use strict';
+
     /**
      * An object keeping track of all the components
      * registered within the HMVC object.
@@ -42,7 +46,7 @@ hmvc = (function(){
      * meaningful variant, templating.render(...).
      */
     var templating = (function(){
-        engine = _;
+        var engine = _;
         engine.templateSettings = {
             'interpolate': /{{([\s\S]+?)}}/g
         };
@@ -51,24 +55,24 @@ hmvc = (function(){
             render: function(content, variables){
                 return engine.template(content, variables);
             }
-        }
+        };
     })();
 
     var getDependenciesForComponent = function(component, element) {
         var dependencies = [createElement(element)];
 
         components[component].dependencies.forEach(function(name){
-            dependency = services[name];
+            var dependency = services[name];
 
             if (dependency) {
-                dependencies.push(dependency)
+                dependencies.push(dependency);
             } else {
                 throw new Error("HMVC could not find the dependency '{d}' of component '{c}' Are you sure you defined it? Got typo?".replace('{c}', component).replace('{d}', name));
             }
         });
 
         return dependencies;
-    }
+    };
 
     /**
      * Runs the {component} on the specified element,
@@ -82,14 +86,16 @@ hmvc = (function(){
      * it.
      *
      * @param {String} component
-     * @param {FancyElement} element
+     * @param {Element} element
      */
     var runComponent = function(component, element) {
+        var result = {};
+
         try {
             result = components[component].callback.apply(this, getDependenciesForComponent(component, element));
         }  catch  (err) {
-            console.error(err.message)
-            console.info("Aborting the execution of the component {c}, have fun!".replace('{c}', component))
+            console.error(err.message);
+            console.info("Aborting the execution of the component {c}, have fun!".replace('{c}', component));
 
             return;
         }
@@ -101,9 +107,11 @@ hmvc = (function(){
                 element.outerHTML = templating.render(result.template, data);
             }
 
-            result.terminate && result.terminate();
+            if(typeof result.terminate === 'function'){
+                result.terminate();
+            }
         });
-    }
+    };
 
     /**
      * Usual DOM manipulation stuff that comes with JavaScript.
@@ -143,8 +151,9 @@ hmvc = (function(){
                 }
             },
             addClass: function(name) {
-                if (element.classList)
+                if (element.classList) {
                     element.classList.add(name);
+                }
                 else {
                     element.className += ' ' + name;
                 }
@@ -154,7 +163,7 @@ hmvc = (function(){
                     element.classList.remove(name);
                 }
                 else {
-                    element.className = el.className.replace(new RegExp('(^|\\b)' + name.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+                    element.className = element.className.replace(new RegExp('(^|\\b)' + name.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
                 }
             },
             parent: function() {
@@ -178,15 +187,16 @@ hmvc = (function(){
             uri = {},
             i   = 14;
 
-        while (i--) uri[o.key[i]] = m[i] || "";
+        while (i--) { uri[o.key[i]] = m[i] || ""; }
 
         uri[o.q.name] = {};
         uri[o.key[12]].replace(o.q.parser, function ($0, $1, $2) {
-            if ($1) uri[o.q.name][$1] = $2;
+            if ($1) { uri[o.q.name][$1] = $2; }
         });
 
         return uri;
-    };
+    }
+
     parseUri.options = {
         strictMode: false,
         key: ["source","protocol","authority","userInfo","user","password","host","port","relative","path","directory","file","query","anchor"],
@@ -207,17 +217,17 @@ hmvc = (function(){
      */
     return {
         /**
-         * Runs HMVC: call this function everytime you want
+         * Runs HMVC: call this function every time you want
          * HMVC to parse your dom and run your components.
          */
         run: function() {
-            for (component in components) {
-                var selectors   = [component, "[" + component + "]", "[data-" + component + "]"];
+            for (var component in components) {
+                var selectors   = component + ", [" + component + "], " + "[data-" + component + "]";
                 var elements    = document.querySelectorAll(selectors);
 
                 var i, length = elements.length;
                 for (i = 0; i < length; i++) {
-                    runComponent(component, elements[i])
+                    runComponent(component, elements[i]);
                 }
             }
         },
@@ -243,7 +253,7 @@ hmvc = (function(){
          * @see runComponent
          * @param {String} name
          * @param {Function} callback
-         * @param {Array} dependencies
+         * @param {Array} [dependencies]
          */
         component: function(name, callback, dependencies) {
             components[name] = {
