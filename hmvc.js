@@ -85,6 +85,8 @@ hmvc = (function(){
      * @param {FancyElement} element
      */
     var runComponent = function(component, element) {
+        var result = {};
+
         try {
             result = components[component].callback.apply(this, getDependenciesForComponent(component, element));
         }  catch  (err) {
