@@ -7,6 +7,7 @@ before_script:
   - "node test/server.js &"
   - "sleep 3"
   - "ps -fA | grep node"
+  - "casperjs test test/hmvc.js"
 script:
   - "npm test"
 notifications:
