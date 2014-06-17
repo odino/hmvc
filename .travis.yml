@@ -1,15 +1,14 @@
 language: node_js
 node_js:
   - "0.10"
-before_install:
+install:
   - "npm install -g casperjs"
 before_script:
   - "node test/server.js &"
-  - "sleep 2"
+  - "sleep 3"
   - "ps -fA | grep node"
+  - "casperjs test test/hmvc.js"
 script:
   - "npm test"
-after_script:
-  - "ps -fA | grep node"
 notifications:
   email: alessandro.nadalin@gmail.com
