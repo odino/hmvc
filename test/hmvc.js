@@ -1,5 +1,5 @@
 casper.test.begin("Page without components", 2, function(test) {
-    casper.start('http://localhost:8945/test/pages/nothing.html', function() {
+    casper.start('http://localhost:9123/test/pages/nothing.html', function() {
         this.wait(200, function() {
             console.log(this.getPageContent())
             test.assertExists("greet", "the greet component isnt being rendered");
@@ -10,7 +10,7 @@ casper.test.begin("Page without components", 2, function(test) {
 });
 
 casper.test.begin("Simple component", 2, function(test) {
-    casper.start('http://localhost:8945/test/pages/greet.html', function() {
+    casper.start('http://localhost:9123/test/pages/greet.html', function() {
         this.wait(200, function() {
             console.log(this.getPageContent())
             test.assertExists("h1", "the greet component is being rendered");
@@ -21,7 +21,7 @@ casper.test.begin("Simple component", 2, function(test) {
 });
 
 casper.test.begin("Simple component with termnate function", 1, function(test) {
-    casper.start('http://localhost:8945/test/pages/terminate.html', function() {
+    casper.start('http://localhost:9123/test/pages/terminate.html', function() {
         this.wait(200, function() {
             console.log(this.getPageContent())
             test.assertExists('greet-me.terminated', "The greet component has been terminated");
@@ -31,7 +31,7 @@ casper.test.begin("Simple component with termnate function", 1, function(test) {
 });
 
 casper.test.begin("Simple component  declared by attribute", 2, function(test) {
-    casper.start('http://localhost:8945/test/pages/greet-attribute.html', function() {
+    casper.start('http://localhost:9123/test/pages/greet-attribute.html', function() {
         this.wait(200, function() {
             console.log(this.getPageContent())
             test.assertExists("h1", "the greet component is being rendered");
@@ -42,7 +42,7 @@ casper.test.begin("Simple component  declared by attribute", 2, function(test) {
 });
 
 casper.test.begin("Simple component  declared by data-* attribute", 2, function(test) {
-    casper.start('http://localhost:8945/test/pages/greet-data-attribute.html', function() {
+    casper.start('http://localhost:9123/test/pages/greet-data-attribute.html', function() {
         this.wait(200, function() {
             console.log(this.getPageContent())
             test.assertExists("h1", "the greet component is being rendered");
@@ -53,7 +53,7 @@ casper.test.begin("Simple component  declared by data-* attribute", 2, function(
 });
 
 casper.test.begin("Simple component with a dash in the name", 2, function(test) {
-    casper.start('http://localhost:8945/test/pages/greet-me.html', function() {
+    casper.start('http://localhost:9123/test/pages/greet-me.html', function() {
         this.wait(200, function() {
             console.log(this.getPageContent())
             test.assertExists("h1", "the greet-me component is being rendered");
@@ -64,7 +64,7 @@ casper.test.begin("Simple component with a dash in the name", 2, function(test) 
 });
 
 casper.test.begin("Dependency injection", 3, function(test) {
-    casper.start('http://localhost:8945/test/pages/dependency-injection.html', function() {
+    casper.start('http://localhost:9123/test/pages/dependency-injection.html', function() {
         this.wait(200, function() {
             console.log(this.getPageContent())
             test.assertExists("h1", "the greet component is being rendered");
@@ -76,7 +76,7 @@ casper.test.begin("Dependency injection", 3, function(test) {
 });
 
 casper.test.begin("Dependency injection of a custom service", 3, function(test) {
-    casper.start('http://localhost:8945/test/pages/custom-dependency-injection.html', function() {
+    casper.start('http://localhost:9123/test/pages/custom-dependency-injection.html', function() {
         console.log(this.getPageContent())
         test.assertExists("h1", "the greet component is being rendered");
         test.assertNotExists("greet", "the <greet>...</greet> tag disappears from the dom");

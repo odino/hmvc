@@ -5,7 +5,7 @@ before_install:
   - "npm install -g casperjs"
 before_script:
   - "node test/server.js &"
-  - "sleep 2"
+  - "sleep 3"
   - "ps -fA | grep node"
 script:
   - "npm test"

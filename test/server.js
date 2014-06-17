@@ -6,4 +6,6 @@ require('http').createServer(function (req, res) {
     fs.readFile('./' + req.url, 'utf8', function(err, data){
         res.end(data);
     });
-}).listen(8945);
+}).listen(9123);
+
+console.log('test server running...')
