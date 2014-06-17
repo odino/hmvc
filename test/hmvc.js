@@ -1,6 +1,6 @@
 casper.test.begin("Page without components", 2, function(test) {
     casper.start('http://localhost:9123/test/pages/nothing.html', function() {
-        this.wait(200, function() {
+        this.wait(1000, function() {
             console.log(this.getPageContent())
             test.assertExists("greet", "the greet component isnt being rendered");
             test.assertNotExists("h1", "the <h1>...</h1> tag disappears from the dom");
@@ -11,7 +11,7 @@ casper.test.begin("Page without components", 2, function(test) {
 
 casper.test.begin("Simple component", 2, function(test) {
     casper.start('http://localhost:9123/test/pages/greet.html', function() {
-        this.wait(200, function() {
+        this.wait(1000, function() {
             console.log(this.getPageContent())
             test.assertExists("h1", "the greet component is being rendered");
             test.assertNotExists("greet", "the <greet>...</greet> tag disappears from the dom");
@@ -22,7 +22,7 @@ casper.test.begin("Simple component", 2, function(test) {
 
 casper.test.begin("Simple component with termnate function", 1, function(test) {
     casper.start('http://localhost:9123/test/pages/terminate.html', function() {
-        this.wait(200, function() {
+        this.wait(1000, function() {
             console.log(this.getPageContent())
             test.assertExists('greet-me.terminated', "The greet component has been terminated");
             test.done();
@@ -32,7 +32,7 @@ casper.test.begin("Simple component with termnate function", 1, function(test) {
 
 casper.test.begin("Simple component  declared by attribute", 2, function(test) {
     casper.start('http://localhost:9123/test/pages/greet-attribute.html', function() {
-        this.wait(200, function() {
+        this.wait(1000, function() {
             console.log(this.getPageContent())
             test.assertExists("h1", "the greet component is being rendered");
             test.assertNotExists("div", "the <div greet>...</div> tag disappears from the dom");
@@ -43,7 +43,7 @@ casper.test.begin("Simple component  declared by attribute", 2, function(test) {
 
 casper.test.begin("Simple component  declared by data-* attribute", 2, function(test) {
     casper.start('http://localhost:9123/test/pages/greet-data-attribute.html', function() {
-        this.wait(200, function() {
+        this.wait(1000, function() {
             console.log(this.getPageContent())
             test.assertExists("h1", "the greet component is being rendered");
             test.assertNotExists("div", "the <div data-greet>...</div> tag disappears from the dom");
@@ -54,7 +54,7 @@ casper.test.begin("Simple component  declared by data-* attribute", 2, function(
 
 casper.test.begin("Simple component with a dash in the name", 2, function(test) {
     casper.start('http://localhost:9123/test/pages/greet-me.html', function() {
-        this.wait(200, function() {
+        this.wait(1000, function() {
             console.log(this.getPageContent())
             test.assertExists("h1", "the greet-me component is being rendered");
             test.assertNotExists("greet-me", "the <greet-me>...</greet-me> tag disappears from the dom");
@@ -65,7 +65,7 @@ casper.test.begin("Simple component with a dash in the name", 2, function(test) 
 
 casper.test.begin("Dependency injection", 3, function(test) {
     casper.start('http://localhost:9123/test/pages/dependency-injection.html', function() {
-        this.wait(200, function() {
+        this.wait(1000, function() {
             console.log(this.getPageContent())
             test.assertExists("h1", "the greet component is being rendered");
             test.assertNotExists("greet", "the <greet>...</greet> tag disappears from the dom");
